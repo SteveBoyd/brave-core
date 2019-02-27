@@ -54,7 +54,6 @@ LedgerImpl::LedgerImpl(ledger::LedgerClient* client) :
     last_shown_tab_id_(-1),
     last_pub_load_timer_id_(0u),
     last_grant_check_timer_id_(0u) {
-
   // Ensure TaskScheduler is initialized before creating the task runner for
   // ios.
   if (!base::TaskScheduler::GetInstance()) {
@@ -516,8 +515,9 @@ unsigned int LedgerImpl::GetPublisherMinVisits() const {
   return bat_publishers_->getPublisherMinVisits();
 }
 
-unsigned int LedgerImpl::GetNumExcludedSites() const {
-  return bat_publishers_->getNumExcludedSites();
+void LedgerImpl::GetExcludedPublishersNumber(
+    ledger::GetExcludedPublishersNumberDBCallback callback) const {
+  ledger_client_->GetExcludedPublishersNumberDB(callback);
 }
 
 bool LedgerImpl::GetPublisherAllowNonVerified() const {

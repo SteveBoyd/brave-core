@@ -238,6 +238,9 @@ class MockConfirmationsClient : public ConfirmationsClient {
       const bool is_ready));
 
   MOCK_METHOD0(ConfirmationsTransactionHistoryDidChange, void());
+
+  MOCK_METHOD1(GetExcludedPublishersNumberDB, void(
+      ledger::GetExcludedPublishersNumberDBCallback callback));
 };
 
 }  // namespace confirmations
