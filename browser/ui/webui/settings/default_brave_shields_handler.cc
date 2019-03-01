@@ -50,6 +50,32 @@ void DefaultBraveShieldsHandler::RegisterMessages() {
       "setNoScriptControlType",
       base::BindRepeating(&DefaultBraveShieldsHandler::SetNoScriptControlType,
                           base::Unretained(this)));
+
+
+  web_ui()->RegisterMessageCallback(
+      "setFBLoginControlType",
+      base::BindRepeating(&DefaultBraveShieldsHandler::SetFBLoginControlType,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "setGoogleLoginControlType",
+      base::BindRepeating(
+          &DefaultBraveShieldsHandler::SetGoogleLoginControlType,
+          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "setFBEmbedControlType",
+      base::BindRepeating(&DefaultBraveShieldsHandler::SetFBEmbedControlType,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "setTwitterEmbedControlType",
+      base::BindRepeating(
+          &DefaultBraveShieldsHandler::SetTwitterEmbedControlType,
+          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "setLinkedInEmbedControlType",
+      base::BindRepeating(
+          &DefaultBraveShieldsHandler::SetLinkedInEmbedControlType,
+          base::Unretained(this)));
+
 }
 
 void DefaultBraveShieldsHandler::GetAdControlType(const base::ListValue* args) {
@@ -215,4 +241,44 @@ void DefaultBraveShieldsHandler::SetNoScriptControlType(const base::ListValue* a
         CONTENT_SETTINGS_TYPE_JAVASCRIPT,
         "",
         value ? CONTENT_SETTING_BLOCK : CONTENT_SETTING_ALLOW);
+}
+
+void DefaultBraveShieldsHandler::SetFBLoginControlType(
+    const base::ListValue* args) {
+  CHECK_EQ(args->GetSize(), 1U);
+  CHECK(profile_);
+  bool value;
+  args->GetBoolean(0, &value);
+}
+
+void DefaultBraveShieldsHandler::SetGoogleLoginControlType(
+    const base::ListValue* args) {
+  CHECK_EQ(args->GetSize(), 1U);
+  CHECK(profile_);
+  bool value;
+  args->GetBoolean(0, &value);
+}
+
+void DefaultBraveShieldsHandler::SetFBEmbedControlType(
+    const base::ListValue* args) {
+  CHECK_EQ(args->GetSize(), 1U);
+  CHECK(profile_);
+  bool value;
+  args->GetBoolean(0, &value);
+}
+
+void DefaultBraveShieldsHandler::SetTwitterEmbedControlType(
+    const base::ListValue* args) {
+  CHECK_EQ(args->GetSize(), 1U);
+  CHECK(profile_);
+  bool value;
+  args->GetBoolean(0, &value);
+}
+
+void DefaultBraveShieldsHandler::SetLinkedInEmbedControlType(
+    const base::ListValue* args) {
+  CHECK_EQ(args->GetSize(), 1U);
+  CHECK(profile_);
+  bool value;
+  args->GetBoolean(0, &value);
 }

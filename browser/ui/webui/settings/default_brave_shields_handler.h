@@ -30,6 +30,16 @@ class DefaultBraveShieldsHandler : public settings::SettingsPageUIHandler {
   void GetHTTPSEverywhereControlType(const base::ListValue* args);
   void SetNoScriptControlType(const base::ListValue* args);
   void GetNoScriptControlType(const base::ListValue* args);
+  void SetFBLoginControlType(const base::ListValue* args);
+  void GetFBLoginControlType(const base::ListValue* args);
+  void SetGoogleLoginControlType(const base::ListValue* args);
+  void GetGoogleLoginControlType(const base::ListValue* args);
+  void SetFBEmbedControlType(const base::ListValue* args);
+  void GetFBEmbedControlType(const base::ListValue* args);
+  void SetTwitterEmbedControlType(const base::ListValue* args);
+  void GetTwitterEmbedControlType(const base::ListValue* args);
+  void SetLinkedInEmbedControlType(const base::ListValue* args);
+  void GetLinkedInEmbedControlType(const base::ListValue* args);
 
   Profile* profile_ = nullptr;
 

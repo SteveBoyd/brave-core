@@ -56,6 +56,31 @@
         label="$i18n{noScriptControlLabel}"
         on-settings-boolean-control-change="onNoScriptControlChange_">
     </settings-toggle-button>
+    <settings-toggle-button id="fbLoginControlType"
+        pref="{{prefs.brave.fb_login_default}}"
+        label="$i18n{fbLoginControlLabel}"
+        on-settings-boolean-control-change="onFBLoginControlChange_">
+    </settings-toggle-button>
+    <settings-toggle-button id="googleLoginControlType"
+        pref="{{prefs.brave.google_login_default}}"
+        label="$i18n{googleLoginControlLabel}"
+        on-settings-boolean-control-change="onGoogleLoginControlChange_">
+    </settings-toggle-button>
+    <settings-toggle-button id="fbEmbedControlType"
+        pref="{{prefs.brave.fb_embed_default}}"
+        label="$i18n{fbEmbedControlLabel}"
+        on-settings-boolean-control-change="onFBEmbedControlChange_">
+    </settings-toggle-button>
+    <settings-toggle-button id="twitterEmbedControlType"
+        pref="{{prefs.brave.twitter_embed_default}}"
+        label="$i18n{twitterEmbedControlLabel}"
+        on-settings-boolean-control-change="onTwitterEmbedControlChange_">
+    </settings-toggle-button>
+    <settings-toggle-button id="linkedInEmbedControlType"
+        pref="{{prefs.brave.linkedin_embed_default}}"
+        label="$i18n{linkedInEmbedControlLabel}"
+        on-settings-boolean-control-change="onLinkedInEmbedControlChange_">
+    </settings-toggle-button>
   </template>
   <script src="default_brave_shields_page.js"></script>
 </dom-module>

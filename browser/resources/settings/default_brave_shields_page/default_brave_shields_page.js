@@ -68,6 +68,11 @@ Polymer({
     this.onFingerprintingControlChange_ = this.onFingerprintingControlChange_.bind(this)
     this.onHTTPSEverywhereControlChange_ = this.onHTTPSEverywhereControlChange_.bind(this)
     this.onNoScriptControlChange_ = this.onNoScriptControlChange_.bind(this)
+    this.onFBLoginControlChange_ = this.onFBLoginControlChange_.bind(this)
+    this.onGoogleLoginControlChange_ = this.onGoogleLoginControlChange_.bind(this)
+    this.onFBEmbedControlChange_ = this.onFBEmbedControlChange_.bind(this)
+    this.onTwitterEmbedControlChange_ = this.onTwitterEmbedControlChange_.bind(this)
+    this.onLinkedInEmbedControlChange_ = this.onLinkedInEmbedControlChange_.bind(this)
 
     this.browserProxy_.getAdControlType().then(value => {
       this.adControlType_= value;
@@ -105,5 +110,20 @@ Polymer({
   onNoScriptControlChange_: function() {
     this.browserProxy_.setNoScriptControlType(this.$.noScriptControlType.checked);
   },
+  onFBLoginControlChange_: function() {
+    this.browserProxy_.setFBLoginControlType(this.$.fbLoginControlType.checked);
+  },
+  onGoogleLoginControlChange_: function() {
+    this.browserProxy_.setGoogleLoginControlType(this.$.googleLoginControlType.checked);
+  },
+  onFBEmbedControlChange_: function() {
+    this.browserProxy_.setFBEmbedControlType(this.$.fbEmbedControlType.checked);
+  },
+  onTwitterEmbedControlChange_: function() {
+    this.browserProxy_.setTwitterEmbedControlType(this.$.twitterEmbedControlType.checked);
+  },
+  onLinkedInEmbedControlChange_: function() {
+    this.browserProxy_.setLinkedInEmbedControlType(this.$.linkedInEmbedControlType.checked);
+  }
 });
 })();

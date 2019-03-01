@@ -86,6 +86,31 @@ cr.define('settings', function() {
     setNoScriptControlType(value) {
       chrome.send('setNoScriptControlType', [value]);
     }
+
+    /** @override */
+    setFBLoginControlType(value) {
+      chrome.send('setFBLoginControlType', [value]);
+    }
+
+    /** @override */
+    setGoogleLoginControlType(value) {
+      chrome.send('setGoogleLoginControlType', [value]);
+    }
+
+    /** @override */
+    setFBEmbedControlType(value) {
+      chrome.send('setFBEmbedControlType', [value]);
+    }
+
+    /** @override */
+    setTwitterEmbedControlType(value) {
+      chrome.send('setTwitterEmbedControlType', [value]);
+    }
+
+    /** @override */
+    setLinkedInEmbedControlType(value) {
+      chrome.send('setLinkedInEmbedControlType', [value]);
+    }
   }
 
   cr.addSingletonGetter(DefaultBraveShieldsBrowserProxyImpl);
