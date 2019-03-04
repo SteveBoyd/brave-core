@@ -31,3 +31,12 @@ export const blockedResourcesSize = (blockedResources: number) => {
   }
   return blockedResources.toString()
 }
+
+export const isShieldsEnabled = (braveShields: 'block' | 'allow') => braveShields !== 'block'
+
+export const getTabIndexValueBasedOnProps = (
+  isBlockedListOpen: boolean,
+  numberOfBlockedItems: number
+): number => {
+  return (isBlockedListOpen || numberOfBlockedItems === 0) ? -1 : 0
+}
