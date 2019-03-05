@@ -39,14 +39,6 @@ pipeline {
                         echo "Creating ${BRANCH_TO_BUILD} branch in brave-browser..."
                         git checkout -f -b ${BRANCH_TO_BUILD}
 
-                        set +e
-                        git rebase origin/master
-                        if [ \$? -ne 0 ]; then
-                            echo "Rebase failed (conflicts); will need to be manually rebased to get new changes"
-                            git rebase --abort
-                        fi
-                        set -e
-
                         echo "Pinning brave-core to branch ${BRANCH_TO_BUILD}..."
                         jq "del(.config.projects[\\"brave-core\\"].branch) | .config.projects[\\"brave-core\\"].branch=\\"${BRANCH_TO_BUILD}\\"" package.json > package.json.new
                         mv package.json.new package.json
@@ -55,6 +47,17 @@ pipeline {
                         git commit -a -m "pin brave-core to branch ${BRANCH_TO_BUILD}"
                         git push ${BB_REPO}
                     fi
+
+                    echo "Rebasing brave-browser branch against master..."
+                    set +e
+                    git rebase master
+                    if [ \$? -ne 0 ]; then
+                        echo "Rebase failed (conflicts); will need to be manually rebased to get new changes"
+                        git rebase --abort
+                    else
+                        echo "rebased ${BRANCH_TO_BUILD} against master"
+                    fi
+                    set -e
 
                     echo "Sleeping 5m so new branch is discovered or associated PR created in brave-browser..."
                     sleep 300
